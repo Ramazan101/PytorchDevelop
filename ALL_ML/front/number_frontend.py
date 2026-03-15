@@ -9,7 +9,7 @@ def check_number():
 
     if upload_file is not None:
         st.image(upload_file, caption='Загруженное изображение')
-        if st.button('Определить цифру'):
+        if st.button('Определить одежду'):
             try:
                 files = {
                     'image': (upload_file.name, upload_file.getvalue(), upload_file.type)                }
