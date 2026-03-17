@@ -101,6 +101,27 @@ class CofarClassification3(nn.Module):
     x = self.second(x)
     return x
 
+class ChechImage4(nn.Module):
+   def __init__(self):
+     super().__init__()
+     self.first = nn.Sequential(
+          nn.Conv2d(3, 128, kernel_size=3, padding=1),
+          nn.ReLU(),
+          nn.MaxPool2d(2),
+          nn.Conv2d(128, 256, kernel_size=3, padding=1),
+          nn.ReLU(),
+          nn.MaxPool2d(2),
+          nn.Conv2d(256, 512, kernel_size=3, padding=1),
+          nn.ReLU(),
+          nn.MaxPool2d(2))
 
+     self.second = nn.Sequential(
+          nn.Flatten(),
+          nn.Linear(512 * 16 * 16, 512),
+          nn.ReLU(), nn.Linear(512, 5) )
+   def forward(self, x):
+     x = self.first(x)
+     x = self.second(x)
+     return x
 
 
