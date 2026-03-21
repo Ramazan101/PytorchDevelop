@@ -7,7 +7,6 @@ from PIL import Image
 
 
 transform = transforms.Compose([
-    transforms.Grayscale(num_output_channels=1),
     transforms.Resize((28, 28)),
     transforms.ToTensor()
 ])
