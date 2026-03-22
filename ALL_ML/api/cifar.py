@@ -1,4 +1,4 @@
-from fastapi import  APIRouter, UploadFile, File, HTTPException
+from fastapi import  APIRouter, UploadFile, File
 import io, torch
 from torchvision import transforms
 from PIL import Image
@@ -26,7 +26,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = CofarClassification3().to(device)
 BASE_DIR = Path(__file__).resolve().parent
 MODEL_DIR = BASE_DIR.parent / 'all_models'
-model_path = MODEL_DIR / 'model_cifar.pth'
+model_path = MODEL_DIR / 'model_cifar10.pth'
 model.load_state_dict(torch.load(model_path, map_location=device))
 model.eval()
 

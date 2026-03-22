@@ -12,10 +12,11 @@ from ALL_ML.front.cifar_frontend import science_image
 from ALL_ML.front.flowers_frontend import flowers_images
 from ALL_ML.front.smartphones_frontend import check_smartphones
 from ALL_ML.front.transport_frontend import check_transport
+from ALL_ML.front.cifar100_frontend import check_cifar100
 
 with st.sidebar:
     name = st.radio(label='Models : ', options=['Info', 'Checking numbers', 'Guessing clothes', 'Cifar-10 classifier',
-                                                'Flowers', 'Smartphones', 'Transport'])
+                                                'Flowers', 'Smartphones', 'Transport', 'Cifar100'])
 if name == 'Info':
     st.title('Добро пожаловать')
     st.write('Checking numbers - Проверка цифр')
@@ -23,6 +24,8 @@ if name == 'Info':
     st.write('Cifar-10 classifier')
     st.write('Flowers')
     st.write('Smartphones')
+    st.write('Transport')
+    st.write('Cifar100')
 
 elif name == 'Checking numbers':
     check_image()
@@ -41,3 +44,6 @@ elif name == 'Smartphones':
 
 elif name == 'Transport':
     check_transport()
+
+elif name == 'Cifar100':
+    check_cifar100()
